@@ -1,0 +1,12 @@
+<footer>
+    <p>&copy; {{currentYear}} Sam Mina's Tech Blog. All rights reserved.</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const yearElement = document.querySelector('[data-year]');
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+        }
+    });
+</script>
