@@ -1,0 +1,49 @@
+{{!-- Dashboard layout --}}
+
+{{#if loggedIn}}
+  <header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/dashboard">Dashboard</a>
+      <form id="logout-form" action="/api/users/logout" method="POST">
+        <button type="submit">Logout</button>
+      </form>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>Your Dashboard</h1>
+      <button id="new-post-btn">Create New Post</button>
+      <form id="new-post-form" action="/api/posts" method="POST" style="display: none;">
+        <input type="text" name="title" placeholder="Post Title" required>
+        <textarea name="content" placeholder="Post Content" required></textarea>
+        <button type="submit">Submit Post</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Your Posts</h2>
+      {{#each posts}}
+        <article>
+          <h3>{{this.title}}</h3>
+          <p>{{this.content}}</p>
+          <footer>
+            <p>Created on {{this.createdAt}}</p>
+            <button class="edit-post-btn" data-id="{{this.id}}">Edit</button>
+            <button class="delete-post-btn" data-id="{{this.id}}">Delete</button>
+          </footer>
+          <form class="edit-post-form" action="/api/posts/{{this.id}}" method="PUT" style="display: none;">
+            <input type="text" name="title" value="{{this.title}}" required>
+            <textarea name="content" required>{{this.content}}</textarea>
+            <button type="submit">Update Post</button>
+          </form>
+        </article>
+      {{else}}
+        <p>No posts available. Create your first post!</p>
+      {{/each}}
+    </section>
+  </main>
+{{else}}
+  <p>You must be logged in to view the dashboard.</p>
+{{/if}}
