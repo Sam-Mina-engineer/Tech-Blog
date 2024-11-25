@@ -1,6 +1,7 @@
 {{!-- Main homepage layout --}}
 
 {{#if loggedIn}}
+  {{#if loggedIn}}
   <header>
     <nav>
       <a href="/">Home</a>
@@ -19,10 +20,31 @@
     </nav>
   </header>
 {{/if}}
+{{else}}
+  {{#if loggedIn}}
+  <header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/dashboard">Dashboard</a>
+      <form id="logout-form" action="/api/users/logout" method="POST">
+        <button type="submit">Logout</button>
+      </form>
+    </nav>
+  </header>
+{{else}}
+  <header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/login">Login</a>
+      <a href="/signup">Sign Up</a>
+    </nav>
+  </header>
+{{/if}}
+{{/if}}
 
 <main>
   <section>
-    <h1>Welcome to the Tech Blog</h1>
+    <h1>Welcome Sam Mina's Tech Blog</h1>
     {{#each posts}}
       <article>
         <h2>{{this.title}}</h2>
