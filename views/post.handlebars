@@ -1,0 +1,59 @@
+{{!-- Template for viewing blog posts and comments --}}
+
+<header>
+  <nav>
+    <a href="/">Home</a>
+    {{#if loggedIn}}
+      <a href="/dashboard">Dashboard</a>
+      <form id="logout-form" action="/api/users/logout" method="POST">
+        <button type="submit">Logout</button>
+      </form>
+    {{else}}
+      <a href="/login">Login</a>
+      <a href="/signup">Sign Up</a>
+    {{/if}}
+  </nav>
+</header>
+
+<main>
+  <section>
+    <article>
+      <h1>{{post.title}}</h1>
+      <p>{{post.content}}</p>
+      <footer>
+        <p>By {{post.user.username}}, created on {{post.createdAt}}</p>
+      </footer>
+    </article>
+  </section>
+
+  <section>
+    <h2>Comments</h2>
+    {{#if post.comments.length}}
+      <ul>
+        {{#each post.comments}}
+          <li>
+            <p>{{this.content}}</p>
+            <footer>
+              <p>By {{this.user.username}}, created on {{this.createdAt}}</p>
+            </footer>
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>No comments yet. Be the first to leave a comment!</p>
+    {{/if}}
+  </section>
+
+  {{#if loggedIn}}
+    <section>
+      <h3>Leave a Comment</h3>
+      <form id="comment-form" action="/api/comments" method="POST">
+        <textarea name="content" placeholder="Write your comment here..." required></textarea>
+        <input type="hidden" name="post_id" value="{{post.id}}">
+        <button type="submit">Submit Comment</button>
+      </form>
+    </section>
+  {{else}}
+    <p>You must be logged in to leave a comment. <a href="/login">Login here</a> or <a href="/signup">sign up</a> to join the discussion.</p>
+  {{/if}}
+</main>
