@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fffacd; 
+    color: #5c4033; 
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #d2b48c; 
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    width: 80%;
+    margin: 20px auto;
+    background: #f5deb3; 
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #d2b48c; 
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #a0522d; 
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4682b4; 
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4169e1; 
+}
+
+article {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #a0522d; 
+    border-radius: 5px;
+    background-color: #fff8dc; 
+}
+
+article h2 {
+    margin-top: 0;
+}
+
+.comment {
+    margin-left: 20px;
+    padding-left: 10px;
+    border-left: 2px solid #a0522d; 
+}
+
+.comment footer {
+    font-size: 0.9em;
+    color: #777;
+}
+
+#new-post-btn {
+    background-color: #32cd32; 
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#new-post-btn:hover {
+    background-color: #228b22;
+}
+
+.edit-post-btn, .delete-post-btn {
+    margin-top: 10px;
+    background-color: #32cd32; 
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-post-btn:hover, .delete-post-btn:hover {
+    background-color: #228b22; 
+}
+
+#logout-form {
+    display: inline;
+    margin-left: 15px;
+}
+
+#logout-form button {
+    background-color: #ffa500;
+    padding: 5px 10px;
+}
+
+#logout-form button:hover {
+    background-color: #ff8c00; 
+}
