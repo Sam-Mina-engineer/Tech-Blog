@@ -25,6 +25,7 @@ app.set('view engine', 'handlebars');
 const sess = {
   secret: process.env.SESSION_SECRET,
   resave: false,
+  saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize,
   }),
